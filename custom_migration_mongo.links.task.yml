@@ -1,0 +1,22 @@
+entity.custom_migration_mongo.settings:
+  title: 'Settings'
+  route_name: entity.custom_migration_mongo.settings
+  base_route: entity.custom_migration_mongo.settings
+entity.custom_migration_mongo.view:
+  title: 'View'
+  route_name: entity.custom_migration_mongo.canonical
+  base_route: entity.custom_migration_mongo.canonical
+entity.custom_migration_mongo.edit_form:
+  title: 'Edit'
+  route_name: entity.custom_migration_mongo.edit_form
+  base_route: entity.custom_migration_mongo.canonical
+entity.custom_migration_mongo.delete_form:
+  title: 'Delete'
+  route_name: entity.custom_migration_mongo.delete_form
+  base_route: entity.custom_migration_mongo.canonical
+  weight: 10
+entity.custom_migration_mongo.collection:
+  title: 'Custom migration mongos'
+  route_name: entity.custom_migration_mongo.collection
+  base_route: system.admin_content
+  weight: 10

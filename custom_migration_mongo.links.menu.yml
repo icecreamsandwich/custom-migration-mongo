@@ -1,0 +1,10 @@
+entity.custom_migration_mongo.settings:
+  title: 'Custom migration mongo'
+  description: 'Configure a Custom migration mongo entity type.'
+  route_name:  entity.custom_migration_mongo.settings
+  parent: system.admin_structure
+entity.custom_migration_mongo.collection:
+  title: 'Custom migration mongos'
+  description: 'List of custom migration mongos.'
+  route_name: entity.custom_migration_mongo.collection
+  parent: system.admin_content

@@ -1,0 +1,56 @@
+id: cities_migration
+label: 'Migrate Cities Mongo Data to Custom entity'
+migration_group: custom_migrations
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls: 'modules/custom_migration_mongo/cities.json'
+  item_selector: /
+  fields:
+      -
+        name: label
+        label: Label
+        selector: '_id'
+      -
+        name: city
+        label: 'City'
+        selector: city
+      -
+        name: population
+        label: 'Population'
+        selector: pop
+      -
+        name: state
+        label: 'State'
+        selector: state
+  constants:
+    label: 'ABC'
+    city: 'ABC'
+    population: 'ABC'
+    state: 'ABC'
+
+  ids:
+    label:
+      type: string
+
+process:
+  label: label
+  city: city
+  latitude:
+    -
+      plugin: extract
+      source: loc.0
+  longitude:
+    -
+      plugin: extract
+      source: loc.1
+
+  population: population
+  state: state
+
+destination:
+  plugin: 'entity:custom_migration_mongo'
+  overwrite_properties:
+    - label
+migration_dependencies: {}

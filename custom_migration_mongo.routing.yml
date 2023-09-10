@@ -1,0 +1,7 @@
+entity.custom_migration_mongo.settings:
+  path: 'admin/structure/custom-migration-mongo'
+  defaults:
+    _form: '\Drupal\custom_migration_mongo\Form\CustomMigrationMongoSettingsForm'
+    _title: 'Custom migration mongo'
+  requirements:
+    _permission: 'administer custom migration mongo'

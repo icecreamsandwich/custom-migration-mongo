@@ -1,0 +1,10 @@
+entity.custom_migration_mongo.edit_form:
+  route_name: entity.custom_migration_mongo.edit_form
+  group: custom_migration_mongo
+  title: Edit
+
+entity.custom_migration_mongo.delete_form:
+  route_name: entity.custom_migration_mongo.delete_form
+  group: custom_migration_mongo
+  title: Delete
+  weight: 10
