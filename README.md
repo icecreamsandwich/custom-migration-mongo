@@ -5,6 +5,7 @@ Pre requisites
 Steps
 =====
 Install the module : `drush en custom_migration_mongo`
+
 Run the migration : `drush migrate:import cities_migration`
 
 NOTE: Export the migrate_plus configuration (config/install/migrate_plus.migration.cities_migration.yml) to the config directory(For me the location was web/sites/default/files/sync). If we have any change in
@@ -13,14 +14,17 @@ configuration later we can modify and Import the configuration: `drush cim` and 
 Idea
 ====
 a) Create a custom entity type with all the fields mentioned in the collection. 
+
 b) Create a migrate_plus process plugin for processing the json data and mapped to the custom entity fields.
+
 c) There will be UI for the custom entity add and update/ delete also via custom entity UI.
  https://drupal9.5.ddev.site/custom-migration-mongo/<entity-id> 
+ 
 d) To address a future update of the field - for eg: changing the label
 of title to city, we just need to modify the mapping in the yaml file and 
 run the migration again.
 
-Screenshots of the implmentation is available in the `screenshots` folder.
+Screenshots of the implementation is available in the `screenshots` folder.
 
 mongo server connection
 =======================
