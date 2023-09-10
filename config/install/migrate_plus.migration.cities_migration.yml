@@ -1,34 +1,47 @@
+uuid: 291336b8-242c-4e24-8a22-77e2b2b1c0ab
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: F28y7dRX-ON4wLRw4FNDZdUxPXfD2C_XOMiXk1RThPc
 id: cities_migration
-label: 'Migrate Cities Mongo Data to Custom entity'
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
 migration_group: custom_migrations
+label: 'Migrate Cities Mongo Data to Custom entity'
 source:
   plugin: url
   data_fetcher_plugin: file
   data_parser_plugin: json
-  urls: 'modules/custom_migration_mongo/cities.json'
+  urls: modules/custom_migration_mongo/cities.json
   item_selector: /
   fields:
-      -
-        name: label
-        label: Label
-        selector: '_id'
-      -
-        name: city
-        label: 'City'
-        selector: city
-      -
-        name: population
-        label: 'Population'
-        selector: pop
-      -
-        name: state
-        label: 'State'
-        selector: state
-  constants:
-    label: 'ABC'
-    city: 'ABC'
-    population: 'ABC'
-    state: 'ABC'
+    -
+      name: label
+      label: Label
+      selector: _id
+    -
+      name: city
+      label: City
+      selector: city
+    -
+      name: latitude
+      label: Latitude
+      selector: loc/0
+    -
+      name: longitude
+      label: Longitude
+      selector: loc/1
+    -
+      name: population
+      label: Population
+      selector: pop
+    -
+      name: state
+      label: State
+      selector: state
 
   ids:
     label:
@@ -37,20 +50,10 @@ source:
 process:
   label: label
   city: city
-  latitude:
-    -
-      plugin: extract
-      source: loc.0
-  longitude:
-    -
-      plugin: extract
-      source: loc.1
-
+  latitude: latitude
+  longitude: longitude
   population: population
   state: state
-
 destination:
   plugin: 'entity:custom_migration_mongo'
-  overwrite_properties:
-    - label
-migration_dependencies: {}
+migration_dependencies: {  }
